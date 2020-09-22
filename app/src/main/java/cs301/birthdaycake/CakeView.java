@@ -36,6 +36,10 @@ public class CakeView extends SurfaceView {
     public static final float outerFlameRadius = 30.0f;
     public static final float innerFlameRadius = 15.0f;
 
+    Paint paintMe = new Paint();
+    public int xPos;
+    public int yPos;
+
 
 
     /**
@@ -43,6 +47,7 @@ public class CakeView extends SurfaceView {
      * anyway to initialize the member variables
      */
     public CakeView(Context context, AttributeSet attrs) {
+
         super(context, attrs);
         cmVar = new CakeModel();
 
@@ -62,6 +67,8 @@ public class CakeView extends SurfaceView {
         innerFlamePaint.setStyle(Paint.Style.FILL);
         wickPaint.setColor(Color.BLACK);
         wickPaint.setStyle(Paint.Style.FILL);
+        paintMe.setColor(Color.RED);
+        paintMe.setTextSize(50);
 
         setBackgroundColor(Color.WHITE);  //better than black default
 
@@ -140,6 +147,10 @@ public class CakeView extends SurfaceView {
                 }
             }
 
+
+
+            String location = Integer.toString(xPos) + ", " + Integer.toString(yPos);
+            canvas.drawText(location, getWidth()-250, getHeight()-200, paintMe);
 
     }//onDraw
 

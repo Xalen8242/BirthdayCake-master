@@ -1,6 +1,7 @@
 package cs301.birthdaycake;
 
 import android.content.pm.ActivityInfo;
+import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.ToggleButton;
 
 
 public class MainActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
         candlesT.setOnCheckedChangeListener(cakeControllerObject);
         SeekBar seekN = findViewById(R.id.seekBar);
         seekN.setOnSeekBarChangeListener(cakeControllerObject);
+        retrieve.setOnTouchListener(cakeControllerObject);
+
+
+
+
     }
     public void goodbye(View button) {
         System.out.println("Goodbye");
