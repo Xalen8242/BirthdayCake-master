@@ -18,6 +18,7 @@ public class CakeView extends SurfaceView {
     Paint outerFlamePaint = new Paint();
     Paint innerFlamePaint = new Paint();
     Paint wickPaint = new Paint();
+    Paint coordinateText = new Paint();
 
     /* These constants define the dimensions of the cake.  While defining constants for things
         like this is good practice, we could be calculating these better by detecting
@@ -39,10 +40,13 @@ public class CakeView extends SurfaceView {
     Paint paintMe = new Paint();
     public int xPos;
     public int yPos;
+    public int xcoord = 0;
+    public int ycoord = 0;
+
 
 
     /**
-     * ctor must be overridden here as per standard Java inheritance practice.  We need it
+     * actor must be overridden here as per standard Java inheritance practice.  We need it
      * anyway to initialize the member variables
      */
     public CakeView(Context context, AttributeSet attrs) {
@@ -68,6 +72,8 @@ public class CakeView extends SurfaceView {
         wickPaint.setStyle(Paint.Style.FILL);
         paintMe.setColor(Color.RED);
         paintMe.setTextSize(50);
+        coordinateText.setColor(Color.RED);
+        coordinateText.setTextSize(50);
 
         setBackgroundColor(Color.WHITE);  //better than black default
 
@@ -162,6 +168,9 @@ public class CakeView extends SurfaceView {
 
             String location = Integer.toString(xPos) + ", " + Integer.toString(yPos);
             canvas.drawText(location, getWidth()-250, getHeight()-200, paintMe);
+
+            String coordinate = Integer.toString(xPos) + "," + Integer.toString(yPos);
+            canvas.drawText(coordinate, getWidth() - 250, getHeight() - 100, coordinateText);
 
     }//onDraw
 
