@@ -37,7 +37,6 @@ public class CakeView extends SurfaceView {
     public static final float innerFlameRadius = 15.0f;
 
 
-
     /**
      * ctor must be overridden here as per standard Java inheritance practice.  We need it
      * anyway to initialize the member variables
@@ -94,8 +93,6 @@ public class CakeView extends SurfaceView {
         float wickTop = bottom - wickHeight - candleHeight;
         canvas.drawRect(wickLeft, wickTop, wickLeft + wickWidth, wickTop + wickHeight, wickPaint);
 
-
-
     }
 
     /**
@@ -140,6 +137,20 @@ public class CakeView extends SurfaceView {
                 }
             }
 
+        if (cmVar.drawBalloon == true) {
+            Paint balloonPaint = new Paint();
+            balloonPaint.setColor(Color.BLUE);
+            canvas.drawOval(getCakeModel().balloonXPosition - 50,
+                    getCakeModel().balloonYPosition + 75,
+                    getCakeModel().balloonXPosition + 50,
+                    getCakeModel().balloonYPosition - 75, balloonPaint);
+            Paint balloonStringPaint = new Paint();
+            balloonStringPaint.setColor(Color.BLACK);
+            canvas.drawLine(getCakeModel().balloonXPosition,
+                    getCakeModel().balloonYPosition + 75,
+                    getCakeModel().balloonXPosition, getCakeModel().balloonYPosition + 175,
+                    balloonStringPaint);
+        }
 
     }//onDraw
 
