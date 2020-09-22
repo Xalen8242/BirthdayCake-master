@@ -15,16 +15,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_main);
+
         CakeView retrieve = findViewById(R.id.cakeview);
         CakeController cakeControllerObject = new CakeController(retrieve);
+
         Button butt = findViewById(R.id.button);
         butt.setOnClickListener(cakeControllerObject);
+
         Switch candlesT = findViewById(R.id.Can);
         candlesT.setOnCheckedChangeListener(cakeControllerObject);
+
         SeekBar seekN = findViewById(R.id.seekBar);
         seekN.setOnSeekBarChangeListener(cakeControllerObject);
+
         retrieve.setOnTouchListener(cakeControllerObject);
     }
     public void goodbye(View button) {
