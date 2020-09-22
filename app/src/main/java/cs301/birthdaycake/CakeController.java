@@ -59,6 +59,8 @@ View.OnTouchListener {
         Log.d("CakeView","onTouch message");
         cakeModelObject.balloonXPosition = motionEvent.getX();
         cakeModelObject.balloonYPosition = motionEvent.getY();
+        cakeObject.xPos = (int) motionEvent.getX();
+        cakeObject.yPos = (int) motionEvent.getY();
         cakeModelObject.drawBalloon = true;
         cakeObject.invalidate();
         return false;
